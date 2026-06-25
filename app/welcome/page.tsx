@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import AnimatedButton from "@/components/AnimatedButton";
@@ -62,6 +62,14 @@ export default function WelcomePage() {
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play()
+        .then(() => setIsPlaying(true))
+        .catch(err => console.log("Autoplay blocked:", err));
+    }
+  }, []);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
