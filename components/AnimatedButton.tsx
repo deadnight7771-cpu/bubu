@@ -56,7 +56,7 @@ export default function AnimatedButton({
         onClick={handleClick}
         disabled={loading}
         className="relative w-full overflow-hidden rounded-full bg-gradient-to-r from-pink-400 via-rose-500 to-pink-500 px-8 py-5 text-white font-nunito font-bold text-xl md:text-2xl tracking-wide shadow-[0_8px_28px_rgba(233,30,99,0.42)] hover:shadow-[0_12px_40px_rgba(233,30,99,0.6)] transition-shadow duration-300 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:pointer-events-none"
-        {...props}
+        {...(props as any)}
       >
         {loading ? (
           <span className="flex items-center justify-center gap-2">
